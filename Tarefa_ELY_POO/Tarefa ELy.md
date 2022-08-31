@@ -19,3 +19,8 @@ Atributos são as caracteristicas que compõe um objeto, ja os metodos são as a
 #Sim , um usuario pode ter mais de uma conta com diferentes tipos possiveis  
 
 5.
+-Temos alunos, professores, provas, documentos, 
+
+6.
+Não existe um numero maximo, ja que jogos sao feitos por meio de objetos denominados Nodes (ou nodulos), onde cada objeto presente no jogo eh configurado de maneira unica, assim quanto mais elementos adcionados , mais o jogo fica compplexo e mais objetos ele precisa. Podemos citar, inimigos, o jogador, objetos do cenario, objetos de puzzle, e etc..  
+
