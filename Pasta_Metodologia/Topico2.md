@@ -1,3 +1,3 @@
-Topico 2: A demanda pessoal pelo aumento da segurança de dados
+Topico 2: A demanda pessoal pelo aumento da segurança de dados.
 
 -Com o passar do tempo e com a evoluçao da internet, os usuarios passarama  se preocupar mais com o quesito segurança de dados, maneiiras de proteger suas informaçoes pessoais valiosas, tais como nome, endereço, cartoes de crédito, senhas , etc. Essem alerta cresceu recentemente apos a descoberta a respeito da venda de informacoes organizado por empresas como a Meta , dona de redes sociais como o facebook e o instagram. De acordo com as mais recentes noticias esse numero de dados ultrapassa o numero de 2 bilhões.
