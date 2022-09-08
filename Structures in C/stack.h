@@ -5,7 +5,7 @@ typedef char ItemPilha;
 typedef struct pilha {
     int max;  // Capacidade da pilha
     int top; // Posição do topo
-    ItemPilha *item // Itens da pilha
+    ItemPilha *item; // Itens da pilha
 
 } *Pilha;
 
