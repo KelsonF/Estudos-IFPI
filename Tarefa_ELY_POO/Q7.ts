@@ -2,16 +2,16 @@ class Retangulo {
     lado: number = 0;
     comprimento: number = 0;
 
-    constructor(lado: number, comprimento : number){
+    constructor(lado: number, comprimento: number) {
         this.lado = lado;
-        this.comprimento = comprimento; 
+        this.comprimento = comprimento;
     }
 
-    calcularArea(){
+    calcularArea() {
         return this.lado * this.comprimento;
     }
 
-    calcularPerimetro(){
+    calcularPerimetro() {
         return (this.lado * 2) + (this.comprimento * 2);
     }
 }

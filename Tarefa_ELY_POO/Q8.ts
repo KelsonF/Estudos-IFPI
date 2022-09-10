@@ -6,9 +6,9 @@ class Circulo {
     }
 
     calcularArea() {
-        return (3.14 * this.raio**2);
+        return (3.14 * this.raio ** 2);
     }
-    
+
     calcularPerimetro() {
         return (2 * 3.14 * this.raio);
     }
