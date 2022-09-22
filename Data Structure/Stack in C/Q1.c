@@ -1,14 +1,14 @@
 #include <stdio.h>
-#include "stack.h"
+#include "Pilha.c"
 
 int main(void)
 {
-    Pilha P = pilha(3);
-    empilha(1, P);
-    empilha(2, P);
-    printf("%d\n", desempilha(P));
-    printf("%d\n", desempilha(P));
-    printf("%d\n", desempilha(P));
+    Pilha P = createStack(3);
+    push(1, P);
+    push(2, P);
+    printf("%d\n", pop(P));
+    printf("%d\n", pop(P));
+    printf("%d\n", pop(P));
 
     return 0;
 }
