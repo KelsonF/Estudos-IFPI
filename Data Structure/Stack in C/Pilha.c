@@ -58,4 +58,4 @@ void destroy(Pilha *Q){
     free((*Q)->item);
     free(*Q);
     *Q = NULL;
-}
+}   

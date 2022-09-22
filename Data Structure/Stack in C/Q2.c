@@ -1,18 +1,18 @@
 #include <stdio.h>
-#include "stack.h"
+#include "Pilha.c"
 
 int main()
 {
-    Pilha P = pilha(100);
-    empilha(8, P);
+    Pilha P = createStack(100);
+    pop(8, P);
     while (acessoTopo(P) > 0)
     {
-        empilha(acessoTopo(P) / 2, P);
+        pop(acessoTopo(P) / 2, P);
     }
 
-    while (!pilhaVazia(P))
+    while (!stack_is_Empty(P))
     {
-        printf("%d\n", desempilha(P));
+        printf("%d\n", pop(P));
     }
 
     return 0;
