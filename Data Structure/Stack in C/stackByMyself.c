@@ -35,3 +35,13 @@ void push(StackItem element, Stack stack){
 
 }
 
+int pop(Stack stack, int item_pilha){
+    if(!emptyStack(stack)){
+        item_pilha = stack->item[stack->top];
+        stack->top--;
+        return item_pilha;
+    }
+    
+
+}
+
