@@ -9,7 +9,7 @@ typedef struct pilha{
     Itemp *item;
 } *Pilha;  
 
-Pilha createP(int m){
+Pilha createStack(int m){
     Pilha p = malloc(sizeof(struct pilha));
     p->topo = -1;
     p->max = m;
