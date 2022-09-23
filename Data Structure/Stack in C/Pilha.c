@@ -59,3 +59,10 @@ void destroy(Pilha *Q){
     free(*Q);
     *Q = NULL;
 }   
+
+void pushAll(Pilha* stack,Itemp* itens[]){
+    for (int i = 0; itens[i]; i++){
+        push(stack, itens[i]);
+    }
+    
+}
