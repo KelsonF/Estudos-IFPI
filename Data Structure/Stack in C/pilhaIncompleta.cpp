@@ -5,45 +5,57 @@
 
 using namespace std;
 
-class No{
-	public:
+class No
+{
+public:
 	char nome;
 	No *prox;
-	No(char n){
+	No(char n)
+	{
 		nome = n;
 		prox = NULL;
 	}
 };
 
-class Pilha{
-	public:
-	No *topo;
-		
-	Pilha(){
-		topo = NULL;
-	}
-		
-	void push(char n){
-		topo->nome = n;
-			
-	}
-		
-	char pop(){
-			
-	}
-		
-	bool isEmpty(){
-		return topo->nome == -1;
-	}
-	
-	bool isFull(){
+class Pilha
+{
+public:
+	No *topo = NULL;
 
+	void push(char n)
+	{
+		No *novo_no = new No(n);
+		novo_no->prox = topo;
+		topo = novo_no;
+	}
+
+	char pop()
+	{
+		if (!isEmpty())
+		{
+			char item = topo->nome;
+			topo = topo->prox;
+			return item;
+		}
+	}
+
+	int isEmpty()
+	{
+		return topo == NULL;
 	}
 };
 
-int main(){
-	
-	
+int main()
+{
+	Pilha pilha;
+	pilha.push('k');
+	pilha.push('e');
+	pilha.push('l');
+	pilha.push('s');
+	pilha.push('o');
+	pilha.push('n');
 
-	
+	cout << pilha.pop() << endl;
+	cout << pilha.pop() << endl;
+	cout << pilha.pop() << endl;
 }
