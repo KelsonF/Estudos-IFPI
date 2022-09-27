@@ -50,3 +50,10 @@ int pop(Pilha* pilha) {
 
 	return '\0';
 }
+
+int get_top(Pilha* pilha){
+	if(stack_is_empty(pilha)) {
+		return '\0';
+	}
+
+	return pilha->proximo->value;
