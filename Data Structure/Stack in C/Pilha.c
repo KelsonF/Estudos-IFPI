@@ -8,10 +8,10 @@ typedef struct pilha{
     int max;
     int topo;
     Itemp *item;
-} *Pilha;  
+}Pilha;  
 
-Pilha createStack(int value){
-    Pilha new_stack = malloc(sizeof(struct pilha));
+Pilha* createStack(int value){
+    Pilha* new_stack = malloc(sizeof(struct pilha));
     new_stack->topo = -1;
     new_stack->max = value;
     new_stack->item = malloc(value*sizeof(Itemp));
@@ -19,15 +19,15 @@ Pilha createStack(int value){
     return new_stack;
 }
 
-bool stack_is_Empty(Pilha new_stack){
+bool stack_is_Empty(Pilha* new_stack){
     return new_stack->topo == -1;
 }
 
-bool stack_is_Full(Pilha new_stack){    
+bool stack_is_Full(Pilha* new_stack){    
     return new_stack->topo == new_stack->max-1;
 }
 
-void push(Pilha new_stack, Itemp element){
+void push(Pilha* new_stack, Itemp element){
     if(stack_is_Full(new_stack)){
         printf("Pilha cheia");
     }else{
@@ -36,7 +36,7 @@ void push(Pilha new_stack, Itemp element){
     }
 }
 
-Itemp pop(Pilha new_stack){
+Itemp pop(Pilha* new_stack){
     if(satck_is_Empty(new_stack)){
         printf("Pilha vazia");
     }else{
@@ -46,7 +46,7 @@ Itemp pop(Pilha new_stack){
     }
 }
 
-Itemp topo(Pilha new_stack){
+Itemp topo(Pilha* new_stack){
     if(stack_is_Empty(new_stack)){
         printf("Pilha vazia");
     }else{
@@ -54,7 +54,7 @@ Itemp topo(Pilha new_stack){
     }
 }
 
-void destroy(Pilha *Q){
+void destroy(Pilha* *Q){
     free((*Q)->item);
     free(*Q);
     *Q = NULL;
