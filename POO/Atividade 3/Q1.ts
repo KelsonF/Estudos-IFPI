@@ -1,4 +1,4 @@
-
+import {input} from '../../ultilidades/io_utils'
 
 function isItPair(value: number) {
     if (value % 2 == 0) {
@@ -8,5 +8,6 @@ function isItPair(value: number) {
     }
 }
 
-let result:string = isItPair(10);
+let value: number = input();
+let result:string = isItPair(value);
 console.log(result);
