@@ -26,20 +26,30 @@ class Fila{
 		}
 		
 		void append(char n){
-			
+			No* novo_no = new No(n);
+			novo_no->prox = inicio;
 		}
 		
 		char pop(){
-			
+			No* auxiliar;
+			auxiliar = inicio;
+			inicio = auxiliar->prox;
+			return ;
 		}
 		
 		bool isEmpty(){
 			return (inicio == NULL);
 		}
 	
-	    public void popAll(){
-	    	
-	    	
+		void popAll(){
+	    	No* auxiliar;
+			while (inicio != NULL){
+				auxiliar = inicio;
+	    		inicio = auxiliar->prox;
+				delete auxiliar;
+			}
+
+			fim = NULL;
 		}
 
 };

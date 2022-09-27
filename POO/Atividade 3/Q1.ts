@@ -1,3 +1,5 @@
+
+
 function isItPair(value: number) {
     if (value % 2 == 0) {
         return "É par";
