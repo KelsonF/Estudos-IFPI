@@ -9,6 +9,6 @@ function isItPair(value: number) {
     }
 }
 
-let value = input("");
+let value = input("Digite um valor: ");
 let result = Number(value)
-isItPair(result);
+console.log(isItPair(result));
