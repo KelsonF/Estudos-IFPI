@@ -1,4 +1,5 @@
-import {input} from '../../ultilidades/io_utils'
+import promptSync from "prompt-sync";
+const input = promptSync();
 
 function isItPair(value: number) {
     if (value % 2 == 0) {
@@ -8,6 +9,6 @@ function isItPair(value: number) {
     }
 }
 
-let value: number = input();
-let result:string = isItPair(value);
-console.log(result);
+let value = input("");
+let result = Number(value)
+isItPair(result);

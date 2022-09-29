@@ -1,4 +1,9 @@
 {
+  "include": [
+    "**/POO/**/*.ts",
+    "**/ultilidades/**/*.ts"
+],
+
   "compilerOptions": {
     "target": "ES5",                          
     "module": "CommonJS",                    
