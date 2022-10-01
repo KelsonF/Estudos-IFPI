@@ -1,7 +1,10 @@
 {
+  "files": [
+    "ultilidades/teste.ts"
+  ],
+  
   "include": [
-    "**/POO/**/*.ts",
-    "**/ultilidades/**/*.ts"
+    "ultilidades/**/*"
 ],
 
   "compilerOptions": {
@@ -16,6 +19,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
+    "moduleResolution": "NodeNext"
   }
 }
