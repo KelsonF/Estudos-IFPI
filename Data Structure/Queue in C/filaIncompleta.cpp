@@ -7,10 +7,10 @@ using namespace std;
 
 class No{
 	public:
-		char nome;
+		char valor;
 		No *prox;
 		No(char n){
-			nome = n;
+			valor = n;
 			prox = NULL;
 		}
 };
@@ -26,15 +26,26 @@ class Fila{
 		}
 		
 		void append(char n){
-			No* novo_no = new No(n);
-			novo_no->prox = inicio;
+			if(isEmpty()){
+				inicio = new No(n);
+				fim = inicio;
+			} else {
+				No* novo_no = inicio;
+				inicio = inicio->prox;
+				fim = novo_no;	
+			}
 		}
 		
 		char pop(){
-			No* auxiliar;
-			auxiliar = inicio;
-			inicio = auxiliar->prox;
-			return ;
+			if(!isEmpty()){
+				char valor = inicio->valor;
+				No* auxiliar;
+				inicio = inicio->prox;
+				free(auxiliar);
+				return valor;
+			} else {
+				return '\0';
+			}
 		}
 		
 		bool isEmpty(){
@@ -42,23 +53,43 @@ class Fila{
 		}
 	
 		void popAll(){
-	    	No* auxiliar;
-			while (inicio != NULL){
-				auxiliar = inicio;
-	    		inicio = auxiliar->prox;
-				delete auxiliar;
+	    	while(!isEmpty()){
+				pop();
 			}
-
-			fim = NULL;
 		}
 
 };
 
 int main(){
-	
-	
-    
-	
+	Fila* nova_fila = new Fila;
 
+	cout << "Inserir 3 valores: " << endl;
 	
+    for(int i = 0; i < 5; i++){
+		char valor;
+		cin >> valor;
+		nova_fila->append(valor);
+	}
+	
+	cout << "Quer remover quantos itens da fila ???: " << endl;
+
+	int quantidade;
+	cin >> quantidade;
+
+	for(int i = 0; i < quantidade; i++){
+		nova_fila->pop();	
+	}
+
+	cout << "Deseja remover todos os elementos da fila ???: " << endl;
+
+	string resposta;
+	cin >> resposta;
+
+	if(resposta == "S" || resposta == "s"){
+		nova_fila->popAll();
+	} else {
+		cout << "Obrigado pela compreensão" << endl;
+	}
+
+	return 0;
 }
