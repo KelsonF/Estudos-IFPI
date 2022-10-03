@@ -1,0 +1,2 @@
+A abordagem da questao 8 é melhor, ja que a mesma retorna um booleano (True ou False)
+assim é possivel checar se a operação teria realmente sido executada pelo programa em questão.
