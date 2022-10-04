@@ -39,7 +39,7 @@ class Fila{
 		char pop(){
 			if(!isEmpty()){
 				char valor = inicio->valor;
-				No* auxiliar;
+				No* auxiliar = inicio;
 				inicio = inicio->prox;
 				free(auxiliar);
 				return valor;
