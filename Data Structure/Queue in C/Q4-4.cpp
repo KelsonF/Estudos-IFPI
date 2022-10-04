@@ -12,11 +12,11 @@ int main(){
     int tempo = 3;
     while(F->isEmpty() == false){
         int x = F->pop();
-        int p = x/10;
-        int t = x%10;
+        int p = x / 10;
+        int t = x % 10;
 
         if(t > 3){
-            F->append(p*10+(t-tempo));
+            F->append(p * 10 + (t-tempo));
         }else{
             cout << x << "  Processo concluido" << endl;
         }
