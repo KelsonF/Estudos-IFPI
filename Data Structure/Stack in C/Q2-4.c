@@ -1,32 +1,32 @@
 #include <stdio.h>
-#include "stack.h"
+#include "Pilha.c"
 
 int main() {
     int tam;
-    float item;
+    Itemp* item;
     float aux;
 
     printf("Qtd de numeros: ");
     scanf("%d", &tam);
 
-    PilhaS pilhaB = criarPilhaS(tam);
-    PilhaS pilhaA = criarPilhaS(tam);
+    Pilha* pilhaB = createStack(tam);
+    Pilha* pilhaA = createStack(tam);
 
     printf("Itens: ");
     for(int i = 0; i < tam; i++) {
         scanf("%f", &item);
-        pushS(item, pilhaB);
+        push(item, pilhaB);
     }
 
     printf("Tranquilo \n");
-    while(!ehPilhaSVazia(pilhaB)) {
-        if (ehPilhaSVazia(pilhaA) || pilhaA->item[pilhaA->topo] >= pilhaB->item[pilhaB->topo]) {
-            pushS(popS(pilhaB), pilhaA);
+    while(!stack_is_Empty(pilhaB)) {
+        if (stack_is_Empty(pilhaA) || pilhaA->item[pilhaA->topo] >= pilhaB->item[pilhaB->topo]) {
+            push(pop(pilhaB), pilhaA);
         } else {
             aux = popS(pilhaB);
             printf("aux: %.2f\n", aux);
 
-            while (!ehPilhaSVazia(pilhaA) && pilhaA->item[pilhaA->topo] < aux) {
+            while (!satck_is_Empty(pilhaA) && pilhaA->item[pilhaA->topo] < aux) {
                 pushS(popS(pilhaA), pilhaB);
             }
             pushS(aux, pilhaA);
@@ -34,8 +34,6 @@ int main() {
         }
         
     }
-
-    showPilhaS(pilhaA);
 
     system("pause");
 }
