@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "stackByMyself.c" // Pilha de char
+#include "Pilha.c" // Pilha de char
 
 int ehAbrindo(char item)
 {
@@ -25,7 +25,7 @@ int ehFechamentoValido(char topItem, char currentItem)
 
 int verificarExpressao(char exp[])
 {
-    Pilha pilha = createStack(strlen(exp));
+    Pilha* pilha = createStack(strlen(exp));
 
     for (int i = 0; i < strlen(exp); i++)
     {
