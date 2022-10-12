@@ -3,49 +3,50 @@
 using namespace std;
 
 typedef struct lista{
-	int mat;
+	int matricula;
 	string nome;	
-}Lista; 
+}Aluno; 
 
-Lista* array[30];
-
-
-void incluirDesordenado(Lista* elemento, Lista* array[]){
-    for(int i = 0; i < 30; i++){
-        array[i] = elemento;
-    }
-}
+Aluno lista[30];
 
 //retorna a posicao do elemento procurado
-int procura(int elemento, Lista* array[]){	
-	for(int i = 0; i < 30; i++){
-        if(array[i]->mat == elemento){
-            return i;
-        } else {
-            cout << "O elemento não existe" << endl;
-        }
-    }
+int procura(int matricula){
+    int counter = -1;
+
+    for(int i = 0; i <= counter; i++) {
+		if (lista[i].matricula == matricula) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+void incluirDesordenado(Aluno novo_aluno){
+    int counter = -1;
+
+    if (procura(novo_aluno.matricula) == -1) {
+		counter++;
+		lista[counter] = novo_aluno;
+	} else {
+		cout << "Aluno ja cadastrado!" << endl;
+	}
 }
 
 //recebe a posicao e imprime o elemento na tela
-void mostrar(int posicao, Lista* array[]){
-    for(int i = 0; i < 30; i++){
-        if(i == posicao){
-            cout << array[i]->mat << endl;
-        }
-    }
+void mostrar(int posicao){
+    cout << "INFORMAÇÕES" << endl;
+    cout << "Nome: " << lista[posicao].nome << endl;
+    cout << "Matricula: " << lista[posicao].matricula << endl;
 }
 
 //procura o elemento e depois mostra o elemento encontrado (se nao for encontrado informa q ele nao existe)
-void consultar(int mat, Lista* array[]){
-    int posicaoAluno = procura(mat, array);
+void consultar(int matricula){	
+    int posicaoElemento = procura(matricula);
 
-    for(int i = 0; i < 30; i++){
-        if(posicaoAluno != -1){
-            mostrar(posicaoAluno,array);
-        } else {
-            cout << "O elemento não existe" << endl;
-        }
+    if(posicaoElemento != -1){
+        mostrar(posicaoElemento);
+    } else {
+        cout << "O elemento em questão não existe" << endl;
     }
 }
 
@@ -62,4 +63,3 @@ main(){
 	
 	
 }
-
