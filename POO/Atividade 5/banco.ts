@@ -1,22 +1,30 @@
 export class Conta {
-    numero: string;
-    saldo: number;
+    private _numero: string;
+    private _saldo: number;
 
     constructor(numero: string, saldo: number) {
-        this.numero = numero;
-        this.saldo = saldo;
+        this._numero = numero;
+        this._saldo = saldo;
+    }
+
+    get Numero(){
+        return this._numero;
+    }
+
+    get Saldo(){
+        return this._saldo
     }
 
     sacar(valor: number): void {
-        this.saldo = this.saldo - valor;
+        this._saldo = this._saldo - valor;
     }
 
     depositar(valor: number): void {
-        this.saldo = this.saldo + valor;
+        this._saldo = this._saldo + valor;
     }
 
-    consultarSaldo(): number {
-        return this.saldo;
+    get consultarSaldo(): number {
+        return this._saldo;
     }
 
     transferencia(contaDestino: Conta, valor: number) {
@@ -26,14 +34,15 @@ export class Conta {
 }
 
 
+
 export class Banco {
-    contas: Conta[] = [];
+    private _contas: Conta[] = [];
 
     inserir(conta: Conta): void {
-        let novaConta: Conta = new Conta(conta.numero, conta.saldo)
+        let novaConta = this.consultar(conta.Numero)
 
         if (conta == null) {
-            this.contas.push(novaConta)
+            this._contas.push(novaConta)
         } else {
             console.log("Essa conta ja esxite, tente novamente !!!")
         }
@@ -43,8 +52,8 @@ export class Banco {
     consultar(numero: string): Conta {
         let contaProcurada!: Conta
 
-        for (let conta of this.contas) {
-            if (conta.numero == numero) {
+        for (let conta of this._contas) {
+            if (conta.Numero == numero) {
                 contaProcurada = conta
                 break
             }
@@ -56,8 +65,8 @@ export class Banco {
     consultarIndice(numero: string): number {
         let indice = -1
 
-        for (let i = 0; i < this.contas.length; i++) {
-            if (this.contas[i].numero == numero) {
+        for (let i = 0; i < this._contas.length; i++) {
+            if (this._contas[i].Numero == numero) {
                 indice = i
                 break
             }
@@ -67,17 +76,17 @@ export class Banco {
     }
 
     alterar(conta: Conta): void {
-        let indice = this.consultarIndice(conta.numero)
+        let indice = this.consultarIndice(conta.Numero)
 
         if (indice != -1) {
-            this.contas[indice] = conta
+            this._contas[indice] = conta
         }
     }
 
     excluir(numero: string): void {
         let indice: number = this.consultarIndice(numero);
 
-        this.contas.splice(indice,1);
+        this._contas.splice(indice,1);
     }
 
     sacar(numero: string, valor: number): boolean {
@@ -109,14 +118,14 @@ export class Banco {
     }
 
     quantidadeContas() : number {
-        return this.contas.length;
+        return this._contas.length;
     }
 
     depositoTotal(): number{
         let soma = 0
 
         for(let i = 0; i < this.quantidadeContas(); i++){
-            soma += this.contas[i].saldo
+            soma += this._contas[i].Saldo
         }
 
         return soma
