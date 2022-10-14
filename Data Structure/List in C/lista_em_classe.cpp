@@ -218,7 +218,7 @@ int main()
     l->addToFinal(2, "Eduardo");
     l->addToFinal(3, "Carvalho");
     l->addToInicio(5, "Soares");
-    l->addToInicio(6, "Cristiano Oliveira");
+    l->addToInicio(6, "Kelson Eduardo");
     l->mostra();
 
     l->listainvertida();
