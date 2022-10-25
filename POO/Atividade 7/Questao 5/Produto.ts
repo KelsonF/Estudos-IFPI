@@ -32,7 +32,7 @@ export class Produto {
     }
 
     public darBaixa(quantidade:number){
-        if(this._estoque < 0){
+        if(this._estoque > 0){
             this._estoque -= quantidade;
         } else {
             console.log("O estoque desse produto esta vazio !!!");
