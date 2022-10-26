@@ -13,7 +13,7 @@ do {
     console.log('Bem vindo\nDigite uma opção:');
     console.log('1 - Cadastrar 2 - Consultar 3 - Sacar\n' +
         '4 - Depositar 5 - Excluir 6 - Transferir\n' +
-        '7 – Totalizações 8 - Render Juros 9 - Ler arquivo de texto\n' +
+        '7 – Totalizações 8 - Render Juros 9\n' +
         '0 - Sair\n');
     opcao = input("Opção: ");
 
@@ -46,24 +46,24 @@ do {
             break
     }
 
-    continuar = input("\nPress <ENTER> to continue")
+    continuar = input("\nPress ENTER to continue")
     console.clear()
 } while (opcao != '0')
 
 function inserir(): void {
-    let numero: string = input('Número da conta: ');
+    let numero: string = input("Digite o numero da conta: ")
     let conta: Conta;
     conta = new Conta(numero, 0);
     banco.inserirConta(conta);
 }
 
 function consultar(): void {
-    let numero: string = input('Numero da conta: ');
+    let numero: string = input("Digite o numero da conta: ")
     console.log(banco.consultar(numero));
 }
 
 function sacar(): void {
-    let numero: string = input('Numero da conta: ');
+    let numero: string = input("Digite o numero da conta: ")
     let valor: number = Number(input('Valor que deseja sacar: '));
     banco.sacar(numero, valor);
 }
