@@ -1,133 +1,113 @@
-export class Conta {
-    private _numero: string;
-    private _saldo: number;
-
-    constructor(numero: string, saldo: number) {
-        this._numero = numero;
-        this._saldo = saldo;
-    }
-
-    get Numero(){
-        return this._numero;
-    }
-
-    get Saldo(){
-        return this._saldo
-    }
-
-    sacar(valor: number): void {
-        this._saldo = this._saldo - valor;
-    }
-
-    depositar(valor: number): void {
-        this._saldo = this._saldo + valor;
-    }
-
-    get consultarSaldo(): number {
-        return this._saldo;
-    }
-
-    transferencia(contaDestino: Conta, valor: number) {
-        this.sacar(valor);
-        contaDestino.depositar(valor);
-    }
-}
-
-
+import { Conta } from './conta'
+import { Poupanca } from './poupanca'
+import { ContaImposto } from './conta_imposto'
 
 export class Banco {
     private _contas: Conta[] = [];
 
-    inserir(conta: Conta): void {
-        let novaConta = this.consultar(conta.Numero)
+    get contas() {
+        return this._contas;
+    }
 
-        if (conta == null) {
-            this._contas.push(novaConta)
+    public inserirConta(conta: Conta): void {
+        let indiceConta: Conta = this.consultar(conta.numero)
+
+        if (indiceConta == null) {
+            this.contas.push(conta);
         } else {
-            console.log("Essa conta ja esxite, tente novamente !!!")
+            console.log('Essa conta ja existe')
         }
-
     }
 
-    consultar(numero: string): Conta {
-        let contaProcurada!: Conta
+    public consultar(numero: string): Conta {
+        let contaProcurada!: Conta;
 
-        for (let conta of this._contas) {
-            if (conta.Numero == numero) {
-                contaProcurada = conta
-                break
+        for (let c of this.contas) {
+            if (c.numero == numero) {
+                contaProcurada = c;
+                break;
             }
         }
-
-        return contaProcurada
+        return contaProcurada;
     }
 
-    consultarIndice(numero: string): number {
-        let indice = -1
+    private consultarIndice(numero: string): number {
+        let indice: number = -1;
 
-        for (let i = 0; i < this._contas.length; i++) {
-            if (this._contas[i].Numero == numero) {
-                indice = i
-                break
+        for (let i: number = 0; i < this.contas.length; i++) {
+            if (this.contas[i].numero == numero) {
+                indice = i;
+                break;
             }
         }
-
-        return indice
+        return indice;
     }
 
-    alterar(conta: Conta): void {
-        let indice = this.consultarIndice(conta.Numero)
+    public alterarConta(conta: Conta): void {
+        let indice = this.consultarIndice(conta.numero);
 
         if (indice != -1) {
-            this._contas[indice] = conta
+            this.contas[indice] = conta;
         }
     }
 
-    excluir(numero: string): void {
+    public excluirConta(numero: string): void {
         let indice: number = this.consultarIndice(numero);
 
-        this._contas.splice(indice,1);
+        if (indice != -1) {
+            for (let i = 0; i < this.contas.length; i++) {
+                this.contas[i] = this.contas[i + 1];
+            }
+            this.contas.pop();
+        }
     }
 
-    sacar(numero: string, valor: number): boolean {
-        let conta: Conta = this.consultar(numero)
+    public depositar(numero: string, valor: number) {
+        let conta: Conta = this.consultar(numero);
 
         if (conta != null) {
-            conta.sacar(valor)
-            return true
+            conta.depositar(valor);
         }
-
-        return false
-
     }
 
-    depositar(numero: string, valor: number): void {
-        let conta: Conta = this.consultar(numero)
+    public sacar(numero: string, valor: number) {
+        let indice: number = this.consultarIndice(numero);
+
+        if (indice != null) {
+            this.contas[indice].sacar(valor);
+        }
+    }
+
+    public transferir(numeroCredito: string, numeroDebito: string, valor: number) {
+        let contaCredito: Conta = this.consultar(numeroCredito);
+        let contaDebito: Conta = this.consultar(numeroDebito);
+
+        if (contaCredito != null && contaDebito != null) {
+            contaDebito.transferir(contaCredito, valor);
+        }
+    }
+
+    public quantidadeContas(): number {
+        return this.contas.length;
+    }
+
+    public renderJuros(numero: string): void {
+        let conta: Conta = this.consultar(numero);
 
         if (conta != null) {
-            conta.depositar(valor)
+            if (conta instanceof Poupanca) {
+                conta.renderJuros();
+            }
         }
-
     }
 
-    transferencia(numeroOrigem: string, numeroDestino: string, valor: number): void {
-        let conta1: Conta = this.consultar(numeroOrigem);
-        let conta2: Conta = this.consultar(numeroDestino);
+    public debitar(numero: string, valor: number):void {
+        let conta:Conta = this.consultar(numero);
 
-        conta2.transferencia(conta1, valor);
-    }
-
-    quantidadeContas() : number {
-        return this._contas.length;
-    }
-
-    depositoTotal(): number{
-        let soma = 0
-
-        for(let i = 0; i < this.quantidadeContas(); i++){
-            soma += this._contas[i].Saldo
+        if(conta != null){
+            if(conta instanceof ContaImposto){
+                conta.debitar(valor);
+            }
         }
-
-        return soma
     }
 }
