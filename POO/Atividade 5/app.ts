@@ -1,5 +1,6 @@
 var input = require('prompt-sync')();
-import { Banco, Conta } from './banco'
+import { Banco, } from './banco'
+import { Conta } from './conta'
 
 let b: Banco = new Banco();
 let opcao: String = '';
@@ -45,33 +46,33 @@ function inserir(): void {
     let numero: string = input('Número da conta: ');
     let conta: Conta;
     conta = new Conta(numero, 0);
-    b.inserir(conta);
+    b.inserirConta(conta);
 }
 
-function consultar(): void{
+function consultar(): void {
     let numero: string = input('Numero da conta: ');
     console.log(b.consultar(numero));
 }
 
-function sacar(): void{
+function sacar(): void {
     let numero: string = input('Numero da conta: ');
     let valor: number = Number(input('Valor que deseja sacar: '));
     b.sacar(numero, valor);
 }
 
-function depositar(): void{
+function depositar(): void {
     let numero: string = input('Numero da conta: ');
     let valor: number = Number(input('Valor que deseja depositar: '));
     b.depositar(numero, valor);
 }
 
-function transferir(): void{
+function transferir(): void {
     let numero: string = input('Numero da conta que vai transferir: ');
     let numero2: string = input('Numero da conta destino: ');
     let valor: number = Number(input('Valor que deseja transferir: '));
-    b.transferencia(numero2, numero, valor);
+    b.transferir(numero2, numero, valor);
 }
 
-function totalizacoes(): void{
-    console.log(b.depositoTotal());
+function totalizacoes(): void {
+    console.log(b.totalDepositado());
 }

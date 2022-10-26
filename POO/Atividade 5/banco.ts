@@ -1,6 +1,6 @@
 import { Conta } from './conta'
-import { Poupanca } from './poupanca'
-import { ContaImposto } from './conta_imposto'
+import { Poupanca } from '../Atividade 7/Questao 4/poupanca'
+import { ContaImposto } from '../Atividade 7/Questao 4/conta_imposto'
 
 export class Banco {
     private _contas: Conta[] = [];
@@ -91,6 +91,14 @@ export class Banco {
         return this.contas.length;
     }
 
+    totalDepositado(): number {
+        let total: number = 0;
+        for(let i = 0; i < this.contas.length; i++){
+            total += this.contas[i].saldo;
+        }
+        return total;
+    }
+
     public renderJuros(numero: string): void {
         let conta: Conta = this.consultar(numero);
 
@@ -101,7 +109,7 @@ export class Banco {
         }
     }
 
-    public debitar(numero: string, valor: number):void {
+    public debitarContaImposto(numero: string, valor: number):void {
         let conta:Conta = this.consultar(numero);
 
         if(conta != null){

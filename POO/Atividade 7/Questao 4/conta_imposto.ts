@@ -1,4 +1,4 @@
-import { Conta } from './conta'
+import { Conta } from '../../Atividade 5/conta'
 
 export class ContaImposto extends Conta{
     private _taxaDesconto: number;

@@ -1,4 +1,4 @@
-import { Conta } from './conta'
+import { Conta } from '../../Atividade 5/conta'
 
 export class Poupanca extends Conta {
     private _taxaJuros: number;
