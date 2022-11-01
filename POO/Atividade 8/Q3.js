@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const conta_1 = require("../Atividade 5/conta");
+let conta1 = new conta_1.Conta("1", 100);
+let conta2 = new conta_1.Conta("2", 100);
+let conta3 = new conta_1.Conta("3", 100);
+conta1.sacar(150);
+conta2.sacar(50);
+conta3.sacar(200);
+console.log(conta1.saldo);
+console.log(conta2.saldo);
+console.log(conta3.saldo);
