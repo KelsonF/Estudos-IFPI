@@ -22,9 +22,9 @@ export class Banco {
     public consultar(numero: string): Conta {
         let contaProcurada!: Conta;
 
-        for (let c of this.contas) {
-            if (c.numero == numero) {
-                contaProcurada = c;
+        for (let conta of this.contas) {
+            if (conta.numero == numero) {
+                contaProcurada = conta;
                 break;
             }
         }
@@ -73,7 +73,7 @@ export class Banco {
     public sacar(numero: string, valor: number) {
         let indice: number = this.consultarIndice(numero);
 
-        if (indice != null) {
+        if (indice != -1) {
             this.contas[indice].sacar(valor);
         }
     }

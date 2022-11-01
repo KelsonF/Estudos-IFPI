@@ -1,0 +1,10 @@
+2.
+a)Quando se desconsidera a operação de um código, se torna impossível verificar se a mesma foi realizada
+ou não.
+
+b)Quando retornar uma mensagem de erro, ficamos a mercer de uma interface de texto, quando levado ao
+ambiente web o mesmo não será possível, já que o usuário não possui acesso ao log da pagina.
+
+c)Quando se retorna um código de erro, o mesmo é considerado uma má prática de programação, podendo levar
+a mudança do tipo do retorno do metodo, alem disso se o retorno do metodo for um numero o mesmo poderá 
+ser comprometido.

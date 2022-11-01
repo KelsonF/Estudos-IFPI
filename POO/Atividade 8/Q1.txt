@@ -1,0 +1,42 @@
+1.
+a)Desconsiderar a operação;
+b)Exibir mensagem de erro;
+c)Retornar um código de erro;
+
+a)
+class Produto{
+    ...
+
+    public repor(quantidade: number): void {
+        if (this.validadeProduto()) {
+            super.repor(quantidade)
+        } 
+    }
+}
+
+b)
+class Produto{
+    ...
+
+    public repor(quantidade: number): void {
+        if (this.validadeProduto()) {
+            super.repor(quantidade)
+        } else {
+            console.log("Impossivel realizar a reposiçao")
+        }
+    }
+}
+
+c)
+class Produto{
+    ...
+
+    public repor(quantidade: number): void {
+        if (this.validadeProduto()) {
+            super.repor(quantidade);
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

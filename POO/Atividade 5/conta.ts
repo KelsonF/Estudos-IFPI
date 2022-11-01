@@ -16,11 +16,11 @@ export class Conta {
     }
 
     sacar(valor: number): void {
-        if(this.saldo > 0){
-            this._saldo = this._saldo - valor;
-        } else {
-            console.log('Saldo Insuficiente')
+        if(this.saldo < valor){
+            throw new Error("Saldo insuficiente.")
         }
+
+        this._saldo = this.saldo - valor
     }
 
     depositar(valor: number): void {
