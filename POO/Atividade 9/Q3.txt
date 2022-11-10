@@ -1,0 +1,2 @@
+Como visto na terceira questão da atividade, caso você use uma classe abstrata mas 
+não implementa os metodos escritos nela o programa não compila.

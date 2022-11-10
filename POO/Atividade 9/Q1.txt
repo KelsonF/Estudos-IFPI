@@ -1,0 +1,2 @@
+Não é possível instanciar uma classe abstrata, são apenas rascunhos para criação de outras classes
+ou para a definição de um tipo para ser usado dentro do programa.
