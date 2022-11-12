@@ -18,7 +18,7 @@ class Conta2 {
     }
 }
 
-interface Tributavel {
+export interface Tributavel {
     calcularTributos(): number;
 }
 
