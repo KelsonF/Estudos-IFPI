@@ -1,6 +1,6 @@
 import Comparavel from './Q8'
 
-interface NewFiguraGeometrica {
+export interface NewFiguraGeometrica {
     lado: number;
     altura: number;
     base: number;
@@ -10,7 +10,7 @@ interface NewFiguraGeometrica {
     getPerimetro(): number;
 }
 
-class NewQuadrado implements NewFiguraGeometrica, Comparavel {
+export class NewQuadrado implements NewFiguraGeometrica, Comparavel {
     constructor(public lado: number, public altura: number, public base: number) { }
 
     getArea(): number {
@@ -32,7 +32,7 @@ class NewQuadrado implements NewFiguraGeometrica, Comparavel {
     }
 }
 
-class NewTriangulo implements NewFiguraGeometrica,  Comparavel {
+export class NewTriangulo implements NewFiguraGeometrica,  Comparavel {
     constructor(public lado: number, public altura: number, public base: number) { }
 
     getArea(): number {
@@ -54,7 +54,7 @@ class NewTriangulo implements NewFiguraGeometrica,  Comparavel {
     }
 }
 
-class NewRetangulo implements NewFiguraGeometrica,  Comparavel {
+export class NewRetangulo implements NewFiguraGeometrica,  Comparavel {
     constructor(public lado: number, public altura: number, public base: number) { }
 
     getArea(): number {
@@ -75,5 +75,3 @@ class NewRetangulo implements NewFiguraGeometrica,  Comparavel {
         }
     }
 }
-
-export default NewFiguraGeometrica;
