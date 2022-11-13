@@ -1,1 +1,2 @@
-Em meus testes nao foi possivel realizar o uso do new em FiguraGeometrica[10] =)
+Nesse caso de testes estariamos criando um array com elementos do tipo FiguraGeometrica,assim
+sendo possivel realizar a instancia.

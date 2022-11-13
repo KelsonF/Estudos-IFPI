@@ -22,17 +22,13 @@ export interface Tributavel {
     calcularTributos(): number;
 }
 
-class ContaCorrente extends Conta2 implements Tributavel {
-    constructor(_nome: string, _saldo: number) {
-        super(_nome, _saldo);
-    }
-
+export class ContaCorrente extends Conta2 implements Tributavel {
     calcularTributos(): number {
         return this.Saldo * 0.1
     }
 }
 
-class SeguroDeVida implements Tributavel{
+export class SeguroDeVida implements Tributavel {
     calcularTributos(): number {
         return 50.00
     }
