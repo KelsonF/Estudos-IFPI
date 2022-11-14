@@ -1,21 +1,14 @@
 abstract class FiguraGeometrica {
-
-    protected base: number;
-    protected altura: number;
-    protected lado: number
-
-    constructor(base: number, altura: number, lado: number) {
-        this.altura = altura;
-        this.base = base;
-        this.lado = lado;
-    }
-
     abstract getArea(): number;
 
     abstract getPerimetro(): number;
 }
 
 class Quadrado extends FiguraGeometrica {
+    constructor(public lado: number) {
+        super();
+    }
+
     getArea(): number {
         return this.lado * this.lado;
     }
@@ -26,6 +19,10 @@ class Quadrado extends FiguraGeometrica {
 }
 
 class Triangulo extends FiguraGeometrica {
+    constructor(public lado: number, public base: number, public altura: number) {
+        super();
+    }
+
     getArea(): number {
         return this.base * this.altura / 2;
     }
@@ -36,6 +33,10 @@ class Triangulo extends FiguraGeometrica {
 }
 
 class Retangulo extends FiguraGeometrica {
+    constructor(public lado: number, public base: number) {
+        super();
+    }
+
     getArea(): number {
         return this.lado * this.base;
     }
@@ -45,6 +46,4 @@ class Retangulo extends FiguraGeometrica {
     }
 }
 
-// let r1:FiguraGeometrica = new FiguraGeometrica[10]
-// console.log(r1.getArea());
-// console.log(r1.getPerimetro());
+let r1:FiguraGeometrica[] = new Array();
