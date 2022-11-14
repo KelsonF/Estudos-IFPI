@@ -1,20 +1,16 @@
 import Comparavel from './Q8'
 
 export interface NewFiguraGeometrica {
-    lado: number;
-    altura: number;
-    base: number;
-
     getArea(): number;
 
     getPerimetro(): number;
 }
 
 export class NewQuadrado implements NewFiguraGeometrica, Comparavel {
-    constructor(public lado: number, public altura: number, public base: number) { }
+    constructor(public lado: number) { }
 
     getArea(): number {
-        return this.lado * this.base;
+        return this.lado * this.lado;
     }
 
     getPerimetro(): number {
@@ -55,7 +51,7 @@ export class NewTriangulo implements NewFiguraGeometrica,  Comparavel {
 }
 
 export class NewRetangulo implements NewFiguraGeometrica,  Comparavel {
-    constructor(public lado: number, public altura: number, public base: number) { }
+    constructor(public lado: number, public base: number) { }
 
     getArea(): number {
         return this.lado * this.base;

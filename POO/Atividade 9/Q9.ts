@@ -1,8 +1,8 @@
 import {NewFiguraGeometrica,NewQuadrado,NewRetangulo,NewTriangulo} from './Q7'
 
 class Teste { 
-    quadrado:NewQuadrado = new NewQuadrado(10,10,10);
-    retangulo:NewRetangulo = new NewRetangulo(20,10,20);
+    quadrado:NewQuadrado = new NewQuadrado(10,);
+    retangulo:NewRetangulo = new NewRetangulo(20,10);
     triangulo:NewTriangulo = new NewTriangulo(15,15,15);
 }
 
