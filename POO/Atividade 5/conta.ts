@@ -1,3 +1,5 @@
+import {} from '../Atividade 8 parte 2/Q4'
+
 export class Conta {
     private _numero: string;
     private _saldo: number;
