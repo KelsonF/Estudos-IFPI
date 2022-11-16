@@ -26,7 +26,7 @@ export class Conta {
     }
 
     depositar(valor: number): void {
-        if (valor <= 0) {
+        if (this.validarValor(valor)) {
             throw new ValorInvalidoError("Valor incorreto !!!")
         }
 
@@ -36,5 +36,12 @@ export class Conta {
     transferir(contaDestino: Conta, valor: number): void {
         this.sacar(valor);
         contaDestino.depositar(valor);
+    }
+
+    private validarValor(valor: number) {
+        if (valor <= 0) {
+            return true;
+        }
+        return false;
     }
 }

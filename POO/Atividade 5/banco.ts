@@ -83,11 +83,7 @@ export class Banco {
     this.contas[indice].sacar(valor);
   }
 
-  public transferir(
-    numeroCredito: string,
-    numeroDebito: string,
-    valor: number
-  ) {
+  public transferir(numeroCredito: string, numeroDebito: string, valor: number) {
     let contaCredito: Conta = this.consultar(numeroCredito);
     let contaDebito: Conta = this.consultar(numeroDebito);
 
