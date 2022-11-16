@@ -1,4 +1,4 @@
-import {} from '../Atividade 8 parte 2/Q4'
+import { ValorInvalidoError } from '../Atividade 8 parte 2/Q4'
 
 export class Conta {
     private _numero: string;
@@ -18,15 +18,19 @@ export class Conta {
     }
 
     sacar(valor: number): void {
-        if(this.saldo < valor){
-            throw new Error("Saldo insuficiente.")
+        if (this.saldo < valor) {
+            throw new ValorInvalidoError("Valor incorreto !!!")
         }
 
         this._saldo = this.saldo - valor
     }
 
     depositar(valor: number): void {
-        this._saldo = this._saldo + valor;
+        if (valor <= 0) {
+            throw new ValorInvalidoError("Valor incorreto !!!")
+        }
+
+        this._saldo = this.saldo + valor;
     }
 
     transferir(contaDestino: Conta, valor: number): void {
