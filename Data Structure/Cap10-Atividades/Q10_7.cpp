@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(){
+int main() {
     Poli n = termo(1, 5, termo(2, 1, termo(1, 0, NULL)));
     exibep(n);
 
